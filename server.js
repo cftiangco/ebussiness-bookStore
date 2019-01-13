@@ -7,14 +7,10 @@ const methodOverride = require('method-override');
 
 const Product = require('./routes/product.route');
 const Admin = require('./routes/admin.route');
+const db = require('./config/db');
 
 //mongoose connection middleware
-if(process.ENV.NODE_ENV === 'production') {
-    mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds255794.mlab.com:55794/bookstore-prod', {useNewUrlParser: true});
-} else {
-    mongoose.connect('mongodb://localhost:27017/bookstore', {useNewUrlParser: true});
-}
-
+mongoose.connect(db.mongoURI, {useNewUrlParser: true});
 
 
 //ejs middleware
