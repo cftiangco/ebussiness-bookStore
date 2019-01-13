@@ -1,0 +1,52 @@
+<% include ./partials/header %>
+<br /><br /> <br />
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/products">HOME</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/products">All Categories</a>
+                        <a class="dropdown-item" href="/products/?category=Programming">Computer Programming</a>
+                        <a class="dropdown-item" href="/products/?category=Databases">Databases</a>
+                        <a class="dropdown-item" href="/products/?category=Computer Networking">Computer Networking</a>
+                        <a class="dropdown-item" href="/products/?category=Others">Others</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/products/about">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/products/contact">CONTACT US</a>
+            </li>
+        </ul>
+        <div class="row"> <!-- Row -->
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8" id="about">
+                <br><br><br>
+                <h2>About Us</h1>
+                <br>
+                <p class="lead">
+                    Crimson Tiangco's Online Buy and Sell Books or (Crimson's BookStore) E-Business Project.
+                </p>
+
+                 <p class="lead">
+                    Crimson Tiangco is a Filipino 3rd year student from DATAMEX College of Saint Adeline.
+                </p>
+
+                <div class="text-center center-block">
+                            <p class="txt-railway">- Crimson's BookStore Socials -</p>
+                            <br />
+                                <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                                <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                                <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                                <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                </div>
+                
+            </div> <!-- row -->
+
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+<% include ./partials/footer %>

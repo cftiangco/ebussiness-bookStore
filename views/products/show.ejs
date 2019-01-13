@@ -1,0 +1,80 @@
+<% include ../partials/header %>
+<br><br>
+<div class="container-fluid">
+
+    <div class="row row1">
+        <div class="col-sm-2">
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%=book.book_imageURL%>" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">By <a href="#"><%=book.author_name %></a> (Author)</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8 row1">
+
+                <div class="jumbotron">
+                    <h1 class="display-4"><%= book.title %></h1>
+                        <p class="lead">Posted on <%= moment(book.created_on).format('LL') %></p>
+                        <hr class="my-4">
+                        <p><%= book.body %></p>
+                        <p class="lead">
+                            <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Purchase Now!</a> -->
+                        </p>
+                </div> <!-- jumbotron -->
+
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Book Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Author Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Seller Info</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item list-group-item-warning">Price: P<%= book.price %></li>
+                            <li class="list-group-item">ISBN: <%= book.isbn %></li>
+                            <li class="list-group-item">Title: <%= book.title %></li>
+                            <li class="list-group-item">Author: <%= book.author_name %></li>
+                            <li class="list-group-item">Pages: <%= book.pages %></li>
+                            <li class="list-group-item">Category: <%= book.category %></li>
+                            <li class="list-group-item">Image URL: <a href="<%= book.book_imageURL %>"><%= book.book_imageURL %></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="card-group">
+                            <div class="card" style="text-align:center;display:block;">
+                                <img class="card-img-top" src="<%= book.author_imageURL %>" style="width:30%;"alt="Card image cap">
+                                <div class="card-body">
+                                <h5 class="card-title"><%= book.author_name %></h5>
+                                <p class="card-text"><%= book.author_about %></p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item list-group-item-warning">Phone: <%= book.seller_contact %></li>
+                            <li class="list-group-item ">Name: <%= book.seller_firstname %> <%= book.seller_lastname %></li>
+                            <li class="list-group-item">Address: <%= book.seller_address %></li>
+                            <li class="list-group-item">Email: <%= book.seller_email %></li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div><!-- row1 -->
+
+        <div class="col-sm-2 row1"></div>
+    </div>
+</div><!-- CONTAINER -->
+<% include ../partials/footer %>

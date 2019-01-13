@@ -1,0 +1,108 @@
+<% include ../partials/header %>
+
+<br /><br /> <br />
+<!-- nav -->
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/products">HOME</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/products">All Categories</a>
+                    <a class="dropdown-item" href="/products/?category=Programming">Computer Programming</a>
+                    <a class="dropdown-item" href="/products/?category=Databases">Databases</a>
+                    <a class="dropdown-item" href="/products/?category=Computer Networking">Computer Networking</a>
+                    <a class="dropdown-item" href="/products/?category=Others">Others</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/products/about">ABOUT</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/products/contact">CONTACT US</a>
+        </li>
+    </ul>
+</div>
+<!-- /nav -->
+<br/><br/>
+<!-- content -->
+<div class="container">
+    <div class="card-deck">
+<% if(books.length > 0) { %>
+    <% books.forEach(book => { %>
+            <div class="card">
+                <a href="/products/<%= book.id %>/view">
+                    <img class="card-img-top book-image" src="<%= book.book_imageURL %>" alt="Card image cap">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="/products/<%= book.id %>/view"><%= myFunc.truncate(book.title,25) %></a></h5>
+                    <p><%= book.author %></p>
+                    <p><span class="price">Price</span> : <span class="total-price">P<%= book.price %></span></p>
+                    <p class="card-text"><%= myFunc.stripTags(myFunc.truncate(book.body,30)) %> <a href="/products/<%= book.id %>/view">Read More</a></p>
+                         <a href="/products/<%= book.id %>/view" class="btn btn-success">Show More</a> 
+                    </div>
+
+                    <div class="card-footer">
+                        <small class="text-muted">Uploaded <%= moment(book.created_on).format('LL') %></small>
+                    </div>
+            </div>
+    <% }) %>
+<% } else { %>
+    <div class="no-book-found">
+        No Result Found.
+    </div>
+<% } %>
+    </div>
+<br /><br />
+<div class="paging"><!-- paging -->
+    <% if (pages > 0) { %>
+                    <ul class="pagination pagination-lg">
+                        <% if (current == 1) { %>
+                            <li class="page-item disabled"><a class="page-link">First</a></li>
+                        <% } else { %>
+                           <% if(query) { %>
+                                <li class="page-item"><a class="page-link" href="/products/1/?category=<%= queryCategory %>">First</a></li>
+                            <% } else { %>
+                                <li class="page-item"><a class="page-link" href="/products/1">First</a></li>
+                            <% } %>
+                        <% } %>
+                        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                        <% if (i !== 1) { %>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                        <% } %>
+                        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                            <% if (i == current) { %>
+                                <li class="page-item active"><a class="page-link"><%= i %></a></li>
+                            <% } else { %>
+                                <% if(query) { %>
+                                    <li class="page-item"><a class="page-link" href="/products/<%= i %>/?category=<%=queryCategory%>"><%= i %></a></li>
+                                <% } else { %>
+                                    <li class="page-item"><a class="page-link" href="/products/<%= i %>"><%= i %></a></li>
+                                <% } %>
+                            <% } %>
+                            <% if (i == Number(current) + 4 && i < pages) { %>
+                                <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <% } %>
+                        <% } %>
+                        <% if (current == pages) { %>
+                            <li class="page-item disabled"><a class="page-link">Last</a></li>
+                        <% } else { %>
+                           <% if(query) { %>
+                                <li class="page-item"><a href="/products/<%= pages %>/?category=<%=queryCategory%>" class="page-link">Last</a></li>
+                            <% } else { %>
+                                <li class="page-item"><a href="/products/<%= pages %>" class="page-link">Last</a></li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+    <% } %>
+</div><!-- paging -->
+
+<div class="count alert alert-light" role="alert">
+    Total Result : <%= count %>
+</div>
+
+</div>
+<!-- content -->
+
+<% include ../partials/footer %>

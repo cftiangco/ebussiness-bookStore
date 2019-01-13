@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+<br><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Seller</th>
+                    <th scope="col">Image</th>
+                    <th>Delete<th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% books.forEach((book) => { %>
+                     <tr>
+                        <th scope="row">1</th>
+                        <td><%= book.isbn %></td>
+                        <td><%= book.title %></td>
+                        <td><%= book.author_name %></td>
+                        <td><%= book.category %></td>
+                        <td><%= book.price %></td>
+                        <td><%= book.seller_firstname %></td>
+                        <td>
+                            <img src="<%= book.book_imageURL %>" style="height:10%;width:100%;">
+                        </td>
+                        <td>
+                            <form method="POST" action="/admin/<%= book.id %>/delete?_method=DELETE">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="Submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col"></div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

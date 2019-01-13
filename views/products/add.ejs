@@ -1,0 +1,125 @@
+<% include ../partials/header %>
+<br><br>><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-8">
+               <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Book Description</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Author</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Seller</a>
+                </li>
+                </ul>
+                <br><br>
+                <div class="tab-content" id="myTabContent">
+                    <!-- Book info -->
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <form action="/products/add" method="POST">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">ISBN</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Book ISBN" name="book_isbn">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Book Title</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Harry Potter" name="book_title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Pages</label>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0.00" name="book_pages">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Price</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="0.00" name="book_price">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Select Category</label>
+                                <select class="form-control" id="exampleFormControlSelect1" name="book_category">
+                                    <option disabled selected>Choose category</option>
+                                    <option>Programming</option>
+                                    <option>Computer Networking</option>
+                                    <option>Databases</option>
+                                    <option>Others</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Book Body Content</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="book_body" placeholder="Write book body here.."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Book Image URL</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="URL" name="book_imageURL">
+                            </div>
+                    </div>
+
+                    <!-- author info -->
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                         <div class="form-group">
+                                <label for="">Author Name</label>
+                                <input type="text" class="form-control" id="" placeholder="Write name of author.." name="author_name">
+                         </div>
+
+                         <div class="form-group">
+                                <label for="exampleFormControlTextarea1">About Author</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="author_about" placeholder="Write book body here.."></textarea>
+                         </div>
+
+                        <div class="form-group">
+                                <label for="exampleFormControlInput1">Author Image URL</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="URL" name="author_imageURL">
+                        </div>
+
+                    </div>
+                    <!-- Seller Info -->
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="form-group">
+                                <label for="exampleFormControlInput1">First Name</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Seller First Name.." name="seller_firstname">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="exampleFormControlInput1">Middle Name</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Seller Middle Name.." name="seller_middlename">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="exampleFormControlInput1">Last Name</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Seller Last Name.." name="seller_lastname">
+                        </div>
+
+                         <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Address</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="seller_address" placeholder="Seller Complete Address.."></textarea>
+                         </div>
+
+                          <div class="form-group">
+                                <label for="exampleFormControlInput1">Contact No.</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="+639123456789" name="seller_contact">
+                          </div>
+
+                          <div class="form-group">
+                                <label for="exampleFormControlInput1">Email</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="example@email.com" name="seller_email">
+                          </div>
+
+                        <button class="btn btn-primary" type="submit">Publish</button>
+                    </div>
+                    </form>
+                </div>
+        </div>
+
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

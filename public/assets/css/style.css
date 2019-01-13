@@ -1,0 +1,72 @@
+body { padding-top: 120px; }
+.navbar {
+    height:100px;
+}
+
+nav {
+    height:250px;
+}
+
+.book-image {
+    height: 450px;
+    width:349px;
+}
+.total-price {
+    color:goldenrod;
+}
+
+.price {
+    color: black;
+    font-weight:bold;
+}
+
+.card {
+    text-align:center;
+    border: none;
+}
+
+.paging {
+    text-align:center;
+    width:350px;
+    margin:0 auto;
+}
+.bg-primary {
+    background-color: #007E33 !important;
+}
+.navbar {
+    color:white;
+    background-color: green;
+}
+
+.btn-outline-success {
+    color:white;
+    border-color: white;
+}
+
+.nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.no-book-found {
+   display: block;
+   width:100%;
+   text-align: center;
+}
+
+.count {
+    text-align:center;
+}
+
+.row1 {
+    border:0px solid black;
+}
+
+#brand {
+    color:white!important;
+}
+
+#about {
+    text-align:center;
+}
+
+/*about style*/
