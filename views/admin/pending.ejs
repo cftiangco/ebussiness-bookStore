@@ -7,10 +7,10 @@
         <div class="col">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/admin">Published</a>
+                    <a class="nav-link" href="/admin">Published</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/pending">Pending</a>
+                    <a class="nav-link active" href="/admin/pending">Pending</a>
                 </li>
             </ul>
             <br>
@@ -26,7 +26,7 @@
                     <th scope="col">Seller</th>
                     <th scope="col">Image</th>
                     <th>View</th>
-                    <th>Delete<th>
+                    <th>Delete</th>
                     <th></th>
                     </tr>
                 </thead>
@@ -50,10 +50,11 @@
                                 <button type="Submit">Delete</button>
                             </form>
                         </td>
+
                         <td>
-                            <form method="POST" action="/admin/<%= book.id %>/unpublished?_method=PUT">
+                            <form method="POST" action="/admin/<%= book.id %>/published?_method=PUT">
                                 <input type="hidden" name="_method" value="PUT">
-                                <button type="Submit">Unpublish</button>
+                                <button type="Submit">Publish</button>
                             </form>
                         </td>
                     </tr>

@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -20,6 +22,23 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(methodOverride('_method'));
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized:true
+}));
+
+app.use(flash());
+
+//global variables
+
+app.use(function(req,res,next) {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+});
 
 app.use(express.static(path.join(__dirname,'public')));
 

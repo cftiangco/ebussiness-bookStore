@@ -68,6 +68,8 @@ nav {
 #about {
     text-align:center;
 }
-
+.alert-success, .alert-danger {
+    text-align:center;
+}
 
 /*about style*/

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-
+// 0 pending 1 publish
 let BookSchema = new Schema({
     title: {
         type:String
@@ -49,6 +49,9 @@ let BookSchema = new Schema({
         type:String
     },
     seller_email: {
+        type:String
+    },
+    status: {
         type:String
     },
     created_on: {

@@ -9,12 +9,12 @@ exports.home = (req,res) => {
 
     if(req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        Book.find({title:regex})
+        Book.find({title:regex,status:'Published'})
         .sort({created_on: 'desc'})
         .skip((perPage * page) - perPage)
         .limit(perPage)
         .then(books => {
-            Book.count({title:regex}).then(count => {
+            Book.count({title:regex,status:'Published'}).then(count => {
                 res.render('products/product', {
                     books:books,
                     current:page,
@@ -30,12 +30,12 @@ exports.home = (req,res) => {
     } else {
         if(req.query.category)
         {
-            Book.find({category:req.query.category})
+            Book.find({category:req.query.category,status:'Published'})
             .sort({created_on: 'desc'})
             .skip((perPage * page) - perPage)
             .limit(perPage)
             .then(books => {
-                Book.count({category:req.query.category}).then(count => {
+                Book.count({category:req.query.category,status:'Published'}).then(count => {
                     res.render('products/product', {
                         books:books,
                         current:page,
@@ -49,12 +49,12 @@ exports.home = (req,res) => {
                 });
             }).catch(err => res.send(err));
         } else {
-            Book.find({})
+            Book.find({status:'Published'})
             .sort({created_on: 'desc'})
             .skip((perPage * page) - perPage)
             .limit(perPage)
             .then(books => {
-                Book.count({}).then(count => {
+                Book.count({status:'Published'}).then(count => {
                     res.render('products/product', {
                         books:books,
                         current:page,
@@ -94,10 +94,12 @@ exports.create = async (req, res) => {
         seller_lastname:req.body.seller_lastname,
         seller_address:req.body.seller_address,
         seller_contact:req.body.seller_contact,
-        seller_email:req.body.seller_email
+        seller_email:req.body.seller_email,
+        status: "Pending"
     });
     try {
         let savedBook = await newBook.save()
+        req.flash('success_msg','<div class="alert alert-success">Your request is currently being processed by the Book Store System Administrator, Thank you!</div>');
         res.redirect('/products');
     } catch(err) {
         res.send(err)
