@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-<br><br>
+
 <div class="container-fluid">
 
     <div class="row row1">
@@ -18,7 +18,7 @@
                     <h1 class="display-4"><%= book.title %></h1>
                         <p class="lead">Posted on <%= moment(book.created_on).format('LL') %></p>
                         <hr class="my-4">
-                        <p><%= book.body %></p>
+                        <p><%- book.body %></p>
                         <p class="lead">
                             <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Purchase Now!</a> -->
                         </p>
@@ -56,7 +56,7 @@
                                 <img class="card-img-top" src="<%= book.author_imageURL %>" style="width:30%;"alt="Card image cap">
                                 <div class="card-body">
                                 <h5 class="card-title"><%= book.author_name %></h5>
-                                <p class="card-text"><%= book.author_about %></p>
+                                <p class="card-text"><%- book.author_about %></p>
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                 </div>
                             </div>
