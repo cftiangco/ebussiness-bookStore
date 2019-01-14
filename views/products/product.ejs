@@ -39,7 +39,7 @@
                     <h5 class="card-title"><a href="/products/<%= book.id %>/view"><%= myFunc.truncate(book.title,25) %></a></h5>
                     <p><%= book.author %></p>
                     <p><span class="price">Price</span> : <span class="total-price">P<%= book.price %></span></p>
-                    <p class="card-text"><%= myFunc.stripTags(myFunc.truncate(book.body,30)) %> <a href="/products/<%= book.id %>/view">Read More</a></p>
+                    <p class="card-text"><%- myFunc.stripTags(myFunc.truncate(book.body,30)) %> <a href="/products/<%= book.id %>/view">Read More</a></p>
                          <a href="/products/<%= book.id %>/view" class="btn btn-success">Show More</a> 
                     </div>
 
