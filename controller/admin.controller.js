@@ -53,7 +53,7 @@ exports.unpublished = async (req, res) => {
         book.status = "Pending";
         return await book.save(() => {
             req.flash('success_msg',`<div class="alert alert-success">Book '${book.title}' has been successfully Unpublished</div>`);
-            res.redirect('/admin/pending');
+            res.redirect('/admin');
         });
     } catch(err) {
         res.send(err);

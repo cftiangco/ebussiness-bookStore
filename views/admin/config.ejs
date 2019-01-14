@@ -31,9 +31,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                <% let count = 0 %>
                 <% books.forEach((book) => { %>
+                <% count++ %>
                      <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"><%= count %></th>
                         <td><%= book.isbn %></td>
                         <td><%= book.title %></td>
                         <td><%= book.author_name %></td>
