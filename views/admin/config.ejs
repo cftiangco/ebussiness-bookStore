@@ -62,8 +62,13 @@
                 <% }) %>
                 </tbody>
         </table>
-        </div>
+        <% if(books.length < 1) {%>
+            <div class="no-book-found">
+                No Published Book(s) Found.
+            </div>
+        <% } %>
 
+        </div>
         <div class="col"></div>
     </div>
 </div>
