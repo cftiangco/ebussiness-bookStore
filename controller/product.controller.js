@@ -10,6 +10,7 @@ exports.home = (req,res) => {
     if(req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         Book.find({title:regex})
+        .sort({created_on: 'desc'})
         .skip((perPage * page) - perPage)
         .limit(perPage)
         .then(books => {
@@ -30,6 +31,7 @@ exports.home = (req,res) => {
         if(req.query.category)
         {
             Book.find({category:req.query.category})
+            .sort({created_on: 'desc'})
             .skip((perPage * page) - perPage)
             .limit(perPage)
             .then(books => {
@@ -48,6 +50,7 @@ exports.home = (req,res) => {
             }).catch(err => res.send(err));
         } else {
             Book.find({})
+            .sort({created_on: 'desc'})
             .skip((perPage * page) - perPage)
             .limit(perPage)
             .then(books => {
